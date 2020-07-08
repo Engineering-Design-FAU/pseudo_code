@@ -1,0 +1,23 @@
+import camera.txt
+import lidar.txt
+import bluetooth.txt
+import multiprocessing
+import queue
+
+collision_q = multiprocessing.Queue()
+distance_q = multiprocessing.Queue()
+
+function main():
+  bluetooth_process = multiprocessing.new_process(bluetooth)
+  lidar_process = multiprocessing.new_process(lidar)
+  camera_process = multiprocessing.new_process(camera)
+
+  while True:
+    if not distance_q.empty():
+      data = distance_q.get()
+      bluetooth_process.send_distance_data(data)
+      
+    if not collision_q.empty():
+      data = collision_q.get()
+      camera_process.start_recording(data)
+      bluetooth_process.send_collision_warning(data)
