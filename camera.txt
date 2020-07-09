@@ -1,0 +1,22 @@
+import picamera
+import time
+import datetime
+import subprocess
+
+camera = picamera.PiCamera()
+RECORDING_TIME = 10
+
+def convertToMP4(file_name)
+
+def main():
+  file_name = datetime.now().to_string
+  file_path = "recordings/" + file_name + ".h264"
+  camera.annotate_text = datetime.now().to_string
+  camera.start_recordig(file_path)
+  start = datetime.now()
+  while (datetime.now() - start).seconds < RECORDING_TIME:
+    camera.annotate_text = datetime.now().to_string
+    camera.wait_recording(0.1)
+  camera.stop_recording()
+  camera.close()
+  convertToMP4(file_name)
