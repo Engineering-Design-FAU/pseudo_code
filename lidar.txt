@@ -1,0 +1,40 @@
+import datetime
+import serial
+import time
+import threading
+
+front_lidar = serial.Serial('/lidar/front', 115200)
+back_lidar = serial.Serial('/lidar/back', 115200)
+
+SAMPLE_COUNT = 5
+MINIMUM_STRENGTH_THRESH = 120
+MAXIMUM_SPEED_THRESH = 4.4704
+MINIMUM_SPEED_THRESH = 1.1176
+final_front_flag, final_back_flag = False, False
+init_front_distances, final_front_distances = [], []
+init_back_distances, final_back_distances = [], []
+init_front_speed, final_front_speed, front_accel = 0, 0, 0
+init_back_speed, final_back_speed, back_accel = 0, 0, 0
+
+def clearFrontDistances()
+def clearBackDistances()
+def calcInitFrontSpeed()
+def calcFinalFrontSpeed()
+def calcInitBackSpeed()
+def calcFinalBackSpeed()
+def calcFrontAccel()
+def calcBackAccel()
+def determineFrontCollision()
+def determineBackCollision()
+def initFrontCollisionWarning()
+def finalFrontCollisionWarning()
+def initBackCollisionWarning()
+def finalBackCollisionWarning()
+def processData()
+def readFrontLidarData()
+def readBackLidarData()
+
+def main():
+  front_lidar_thread = threading.Thread(readFrontLidarData)
+  back_lidar_thread = threading.Thread(readBackLidarData)
+  process_data_thread = threading.Thread(processData)
