@@ -1,0 +1,37 @@
+import bluetooth
+import time
+import argparse
+import subprocess
+import os
+
+def sendData(data)
+def processData(data)
+
+def main():
+  time.sleep(10)
+  os.system("hciconfig hci0 piscan")
+  server_sock = bluetooth.BluetoothSocket(RFCOMM)
+  server_sock.bind(("", PORT_ANY))
+  server_sock.listen(1)
+
+  port = server_sock.getsockname()[1]
+  uuid = "{SECRET}"
+
+  advertise_service(server_sock, "RaspiBtSrv", service_id = uuid,
+                    service_classes = [uuid, SERIAL_PORT_CLASS],
+                    profiles = [SERIAL_PORT_PROFILE])
+  operations = ["ping", "example"]
+
+  while True:
+    client_sock = None
+    client_sock, client_info = server_sock.accept()
+
+    data = client_sock.recv(1024)
+    if len(data) == 0:
+      break
+
+    processData(data)
+
+    if not bluetooth_q.empty():
+      data = bluetooth_q.get()
+      sendData(data)
